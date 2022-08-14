@@ -4,6 +4,7 @@
          beStrictAboutChangesToGlobalState="true"
          beStrictAboutOutputDuringTests="true"
          colors="true"
+         bootstrap="tests/bootstrap.php"
  >
     <coverage processUncoveredFiles="true">
         <include>
