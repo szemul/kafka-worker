@@ -10,7 +10,11 @@ class ConfDouble extends Conf
 {
     public function __construct(private Throwable $groupInstanceIdException)
     {
-        parent::__construct();
+        // Fix for test if the rdkafka extension is not installed and using the stubs
+        $parent = new \ReflectionClass(parent::class);
+        if (null !== $parent->getConstructor()) {
+            parent::__construct();
+        }
 
         $this->set('group.id', 'test');
     }

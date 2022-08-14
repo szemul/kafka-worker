@@ -93,7 +93,7 @@ class FactoryTest extends TestCase
     {
         $kafka     = $this->getKafkaConsumer();
         $partition = $this->getTopicPartition('test', 1, 2);
-        $this->expectAssignedToPartitionsLogged('["test/1:2"]');
+        $this->expectAssignedToPartitionsLogged();
         $kafka->shouldReceive('assign')->once()->with([$partition]); //@phpstan-ignore-line
 
         $callback($kafka, RD_KAFKA_RESP_ERR__ASSIGN_PARTITIONS, [$partition]);
@@ -152,11 +152,15 @@ class FactoryTest extends TestCase
         return $this;
     }
 
-    protected function expectAssignedToPartitionsLogged(string $partitions): static
+    protected function expectAssignedToPartitionsLogged(): static
     {
         // @phpstan-ignore-next-line
         $this->logger->shouldReceive('info')
-            ->with('Assigned to partitions: ' . $partitions);
+            ->with(Mockery::on(function (string $message) {
+                $this->assertStringContainsString('Assigned to partitions: ', $message);
+
+                return true;
+            }));
 
         return $this;
     }
