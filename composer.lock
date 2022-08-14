@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d66ae05d8b2a6133d370a3a2dc8baa2",
+    "content-hash": "7acef4e5fe15acaf39c627976214b9a9",
     "packages": [
         {
             "name": "nesbot/carbon",
@@ -1104,16 +1104,16 @@
         },
         {
             "name": "szemul/helper",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/szemul/helper.git",
-                "reference": "bb7a77d9407baddce3b15580c7a2b9540ee27e4b"
+                "reference": "fd553df64b7f5a8e0848d5a13a05585c8801f814"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/szemul/helper/zipball/bb7a77d9407baddce3b15580c7a2b9540ee27e4b",
-                "reference": "bb7a77d9407baddce3b15580c7a2b9540ee27e4b",
+                "url": "https://api.github.com/repos/szemul/helper/zipball/fd553df64b7f5a8e0848d5a13a05585c8801f814",
+                "reference": "fd553df64b7f5a8e0848d5a13a05585c8801f814",
                 "shasum": ""
             },
             "require": {
@@ -1125,7 +1125,7 @@
                 "friendsofphp/php-cs-fixer": "^3.0.0",
                 "jetbrains/phpstorm-attributes": "^1.0",
                 "mockery/mockery": "^1.0",
-                "phpstan/phpstan": "^0.12.80",
+                "phpstan/phpstan": "^1.8.2",
                 "phpunit/phpunit": "^9.5.5"
             },
             "type": "library",
@@ -1141,9 +1141,9 @@
             "description": "Collection of different helpers",
             "support": {
                 "issues": "https://github.com/szemul/helper/issues",
-                "source": "https://github.com/szemul/helper/tree/1.2.0"
+                "source": "https://github.com/szemul/helper/tree/1.3.0"
             },
-            "time": "2022-08-05T20:27:38+00:00"
+            "time": "2022-08-14T11:18:13+00:00"
         },
         {
             "name": "szemul/queue",
@@ -1186,16 +1186,16 @@
         },
         {
             "name": "szemul/queue-worker",
-            "version": "dev-worker-input-support",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/szemul/queue-worker.git",
-                "reference": "8392c731eed4ae21d618917de83f845e170e8be0"
+                "reference": "ef454daaf15d66aa117add9916d0684a1c414eda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/szemul/queue-worker/zipball/8392c731eed4ae21d618917de83f845e170e8be0",
-                "reference": "8392c731eed4ae21d618917de83f845e170e8be0",
+                "url": "https://api.github.com/repos/szemul/queue-worker/zipball/ef454daaf15d66aa117add9916d0684a1c414eda",
+                "reference": "ef454daaf15d66aa117add9916d0684a1c414eda",
                 "shasum": ""
             },
             "require": {
@@ -1227,9 +1227,9 @@
             "description": "Queue processor / worker command for symfony console",
             "support": {
                 "issues": "https://github.com/szemul/queue-worker/issues",
-                "source": "https://github.com/szemul/queue-worker/tree/worker-input-support"
+                "source": "https://github.com/szemul/queue-worker/tree/2.0.0"
             },
-            "time": "2022-08-13T14:32:37+00:00"
+            "time": "2022-08-14T11:52:17+00:00"
         }
     ],
     "packages-dev": [
@@ -4742,9 +4742,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "szemul/queue-worker": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -6,7 +6,7 @@
     "require": {
         "php": "^8.0",
         "ext-rdkafka": "*",
-        "szemul/queue-worker": "dev-worker-input-support",
+        "szemul/queue-worker": "^2.0.0",
         "szemul/helper": "^1.0.0"
     },
     "require-dev": {
