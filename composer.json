@@ -1,0 +1,39 @@
+{
+    "name": "szemul/kafka-worker",
+    "description": "Queue worker implementation for apache kafka",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "ext-rdkafka": "*",
+        "szemul/queue-worker": "dev-worker-input-support",
+        "szemul/helper": "^1.0.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0.0",
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "kwn/php-rdkafka-stubs": "^2.2",
+        "mockery/mockery": "^1.0",
+        "phpstan/phpstan": "^1.4.6",
+        "phpunit/phpunit": "^9.5.5",
+        "szemul/error-handler": "^1.0.0",
+        "szemul/helper": "^1.0.0"
+    },
+    "provide": {
+        "szemul/queue-implementation": "1.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Szemul\\KafkaWorker\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Szemul\\KafkaWorker\\Test\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    }
+}
