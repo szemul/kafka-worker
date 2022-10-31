@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Szemul\KafkaWorker\Message;
 
+use Carbon\Carbon;
+use Carbon\CarbonInterface;
 use RdKafka\Message;
 use Szemul\KafkaWorker\Exception\PayloadDecodingFailedException;
 use Szemul\Queue\Message\MessageInterface;
@@ -43,5 +45,10 @@ class KafkaMessage implements MessageInterface
         $this->identifier = $identifier;
 
         return $this;
+    }
+
+    public function getCreatedAt(): CarbonInterface
+    {
+        return Carbon::createFromTimestamp($this->message->timestamp);
     }
 }

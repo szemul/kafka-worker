@@ -6,8 +6,10 @@
     "require": {
         "php": "^8.0",
         "ext-rdkafka": "*",
-        "szemul/queue-worker": "^2.0.0",
-        "szemul/helper": "^1.3.0"
+        "nesbot/carbon": "^2.0",
+        "szemul/helper": "^1.3.0",
+        "szemul/queue": "dev-message-created-at",
+        "szemul/queue-worker": "dev-message-created-at"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.0.0",
