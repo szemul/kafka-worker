@@ -32,6 +32,7 @@ class KafkaMessageTest extends TestCase
         $this->assertSame(self::PAYLOAD, $sut->getPayload());
         $this->assertSame(self::OFFSET, $sut->getQueueIdentifier());
         $this->assertSame(self::TOPIC_NAME, $sut->getJobName());
+        $this->assertSame($message, $sut->getRawMessage());
     }
 
     public function testSetQueueIdentifier(): void
@@ -44,6 +45,7 @@ class KafkaMessageTest extends TestCase
         $this->assertSame(self::PAYLOAD, $sut->getPayload());
         $this->assertSame(self::TOPIC_NAME, $sut->getJobName());
         $this->assertSame('test', $sut->getQueueIdentifier());
+        $this->assertSame($message, $sut->getRawMessage());
     }
 
     protected function getMessage(?string $payload = null): Message

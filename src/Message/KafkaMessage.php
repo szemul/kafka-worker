@@ -51,4 +51,9 @@ class KafkaMessage implements MessageInterface
     {
         return Carbon::createFromTimestamp($this->message->timestamp);
     }
+
+    public function getRawMessage(): Message
+    {
+        return $this->message;
+    }
 }

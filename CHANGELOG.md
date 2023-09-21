@@ -10,3 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added 
 
 - The creation time can be retrieved from the KafkaMessage
+
+## [1.2.0] - 2023-09-21
+
+### Added 
+
+- The raw message can be retrieved from the KafkaMessage
