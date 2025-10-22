@@ -20,7 +20,7 @@ class ConfDouble extends Conf
     }
 
     /** @throws Throwable */
-    public function set($name, $value)
+    public function set($name, $value): void
     {
         if ('group.instance.id' == $name) {
             throw $this->groupInstanceIdException;

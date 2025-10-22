@@ -5,6 +5,7 @@ namespace Szemul\KafkaWorker\Test\Kafka;
 
 use Mockery;
 use Mockery\MockInterface;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use RdKafka\Conf;
@@ -29,7 +30,7 @@ class FactoryTest extends TestCase
         parent::setUp();
 
         $this->conf   = new Conf();
-        $this->logger = Mockery::mock(LoggerInterface::class); // @phpstan-ignore-line
+        $this->logger = Mockery::mock(LoggerInterface::class);
 
         $this->conf->set('group.id', 'test');
 
@@ -48,6 +49,7 @@ class FactoryTest extends TestCase
 
     public function testGetConsumerAsDynamicMember(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->expectNoConsumerIdMessageLogged();
 
         $this->sut->getConsumer();
@@ -55,6 +57,7 @@ class FactoryTest extends TestCase
 
     public function testGetConsumerWithStaticMemberSupport(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->expectStaticMemberRegistrationLogged('test');
 
         $this->sut->getConsumer('test');
@@ -62,12 +65,13 @@ class FactoryTest extends TestCase
 
     public function testGetConsumerWithoutStaticMemberSupport(): void
     {
+        $this->expectNotToPerformAssertions();
         $this->expectStaticMemberRegistrationFailedLogged();
 
         (new Factory(new ConfDouble(new KafkaException('test')), $this->logger))->getConsumer('test');
     }
 
-    /** @dataProvider getCallbackValidatorMethods */
+    #[DataProvider('getCallbackValidatorMethods')]
     public function testRebalanceCallback(string $validatorMethod): void
     {
         $conf = Mockery::mock(Conf::class);
@@ -80,7 +84,7 @@ class FactoryTest extends TestCase
     }
 
     /** @return array<string, array<string>> */
-    public function getCallbackValidatorMethods(): array
+    public static function getCallbackValidatorMethods(): array
     {
         return [
             'assignPartitions' => ['validateRebalanceCallbackAssignPartitions'],
@@ -176,7 +180,7 @@ class FactoryTest extends TestCase
 
     protected function getKafkaConsumer(): KafkaConsumer|MockInterface
     {
-        return Mockery::mock(KafkaConsumer::class); // @phpstan-ignore-line
+        return Mockery::mock(KafkaConsumer::class);
     }
 
     protected function getTopicPartition(string $topic, int $partition, int $offset): TopicPartition|MockInterface

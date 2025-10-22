@@ -45,9 +45,9 @@ class KafkaWorkerTest extends TestCase
     {
         parent::setUp();
 
-        $this->factory   = Mockery::mock(Factory::class); // @phpstan-ignore-line
-        $this->processor = Mockery::mock(MessageProcessorInterface::class); // @phpstan-ignore-line
-        $this->input     = Mockery::mock(InputInterface::class); // @phpstan-ignore-line
+        $this->factory   = Mockery::mock(Factory::class);
+        $this->processor = Mockery::mock(MessageProcessorInterface::class);
+        $this->input     = Mockery::mock(InputInterface::class);
 
         $this->sut = $this->getSut();
 
@@ -264,7 +264,7 @@ class KafkaWorkerTest extends TestCase
         // @phpstan-ignore-next-line
         $this->factory->shouldReceive('getConsumer')->with(self::CONSUMER_ID)->andReturn($consumer);
 
-        return $consumer; // @phpstan-ignore-line
+        return $consumer;
     }
 
     protected function expectMessageRetrieved(MockInterface|KafkaConsumer $consumer, ?Message $message): static
@@ -294,7 +294,7 @@ class KafkaWorkerTest extends TestCase
         // @phpstan-ignore-next-line
         $this->processor->shouldReceive('process')
             ->once()
-            ->with(Mockery::on([$this, 'validateKafkaMessage']));
+            ->with(Mockery::on([$this, 'validateKafkaMessage'])); //@phpstan-ignore-line
 
         return $this;
     }
@@ -304,7 +304,7 @@ class KafkaWorkerTest extends TestCase
         // @phpstan-ignore-next-line
         $this->processor->shouldReceive('process')
             ->once()
-            ->with(Mockery::on([$this, 'validateKafkaMessage']))
+            ->with(Mockery::on([$this, 'validateKafkaMessage'])) //@phpstan-ignore-line
             ->andThrow($exception);
 
         return $this;
@@ -366,7 +366,7 @@ class KafkaWorkerTest extends TestCase
 
     protected function getEventHandler(): WorkerEventHandlerInterface|MockInterface
     {
-        return Mockery::mock(WorkerEventHandlerInterface::class); // @phpstan-ignore-line
+        return Mockery::mock(WorkerEventHandlerInterface::class);
     }
 
     protected function getMessage(int $err = RD_KAFKA_RESP_ERR_NO_ERROR): Message

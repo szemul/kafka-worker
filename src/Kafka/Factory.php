@@ -16,7 +16,7 @@ class Factory
         private Conf $config,
         private ?LoggerInterface $logger = null,
     ) {
-        $this->config->setRebalanceCb(function (KafkaConsumer $kafka, $err, array $partitions = null) {
+        $this->config->setRebalanceCb(function (KafkaConsumer $kafka, $err, ?array $partitions = null) {
             /** @var TopicPartition[] $partitions */
             switch ($err) {
                 case RD_KAFKA_RESP_ERR__ASSIGN_PARTITIONS:

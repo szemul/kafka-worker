@@ -9,7 +9,7 @@ use Throwable;
 
 class KafkaMessageException extends Exception
 {
-    public function __construct(private Message $kafkaMessage, Throwable $previous = null)
+    public function __construct(private Message $kafkaMessage, ?Throwable $previous = null)
     {
         $message = 'Error received in kafka message: ' . $this->kafkaMessage->errstr();
         $code    = $this->kafkaMessage->err;

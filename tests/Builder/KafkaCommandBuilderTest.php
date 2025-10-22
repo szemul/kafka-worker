@@ -49,7 +49,6 @@ class KafkaCommandBuilderTest extends TestCase
 
         $this->config->shouldReceive('setRebalanceCb')->withAnyArgs(); // @phpstan-ignore-line
 
-        // @phpstan-ignore-next-line
         $this->sut              = new KafkaCommandBuilder($this->dateHelper, $this->interruptedValue);
     }
 
